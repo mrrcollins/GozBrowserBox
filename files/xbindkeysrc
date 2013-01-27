@@ -1,0 +1,23 @@
+"/usr/bin/pactl set-sink-mute 0 0;/usr/bin/pactl set-sink-volume 0 +10%"
+    m:0x0 + c:123
+    XF86AudioRaiseVolume
+
+"/usr/bin/pactl set-sink-mute 0 0;/usr/bin/pactl set-sink-volume 0 +10%"
+    m:0x0 + c:71
+    F5
+
+"/usr/bin/pactl set-sink-mute 0 0;/usr/bin/pactl -- set-sink-volume 0 -10%"
+    m:0x0 + c:122
+    XF86AudioLowerVolume
+
+"/usr/bin/pactl set-sink-mute 0 0;/usr/bin/pactl -- set-sink-volume 0 -10%"
+    m:0x0 + c:70
+    F4
+
+"~/toggle-mute"
+    m:0x0 + c:121
+    XF86AudioMute
+
+"~/toggle-mute"
+    m:0x0 + c:69
+    F3

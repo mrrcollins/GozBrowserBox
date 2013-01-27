@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Browser Mode
+Comment=Remote X to start a browser
+Exec=/usr/share/xsessions/run_browser.sh
+Type=Application
