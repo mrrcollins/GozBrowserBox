@@ -1,6 +1,4 @@
 # /etc/gbb/manifests/localbrowser.pp
-
-class localbrowser {
     user { "browser":
         ensure     	=> present,
         shell      	=> '/bin/bash',
@@ -92,4 +90,3 @@ class localbrowser {
         mode            => 755,
         source          => "/etc/gbb/files/localbrowserxsessions",
     }
-}
