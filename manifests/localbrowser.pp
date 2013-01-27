@@ -62,6 +62,7 @@
         group   => "root",
         mode    => 0644,
         source  => "/etc/gbb/files/chrome_master_preferences",
+        require => Package["google-chrome-stable"],
     }
 
     exec { 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -':
@@ -81,7 +82,7 @@
 
     package { 'google-chrome-stable':
         ensure 		=> latest,
-        require		=> File['/etc/apt/sources.list.d/google.list'];
+        require		=> [ File['/etc/apt/sources.list.d/google.list'], Exec['aptupdate'] ];
     }
 
     file { '/usr/share/xsessions':
