@@ -7,7 +7,7 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
 # Prerequisites
 
 * An older Intel machine that you want to use as a GozBrowserBox. I haven't tried it on machines with less than 512MB of RAM. Disk space is minimal. *THIS WILL TOTALLY WIPE THE HARD DRIVE WITHOUT WARNING. BE SURE THERE ISN'T ANYTHING ON THE MACHINE YOU WANT.*
-* The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads)
+* The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads) for 12.04 (this will probably work on other versions, but I can't think of a good reason not to just use 12.04)
 * An Internet connection
 
 # Installation
@@ -22,12 +22,12 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
  
 4. The Ubuntu installation will start up and ask you a few questions, answer them. :-)
 5. After you set up an administrative user, it will automatically erase and re-partition the hard drive and set it up. Let me repeat that IT WILL AUTOMATICALLY ERASE AND RE-PARTITION THE HARD DRIVE. You've been warned.
-6. It will install and reboot. After the login screen flashes, click the login button with the *Browser* user selected. If Google Chrome doesn't launch, try it one more time. If Google Chrome still doesn't launch, try restarting. I'm still working on the initial install of Google Chrome and it doesn't seem like it get it right sometimes.
+6. It will install and reboot. After the login screen flashes, click the login button with the *Browser* user selected. If Google Chrome doesn't launch, try it one more time. If Google Chrome still doesn't launch, try restarting. I'm still working on the initial install of Google Chrome and it doesn't seem like it gets it right sometimes.
 7. If Google Chrome launches, you're golden!
  
 # Security concerns
  
-By using the preseed file from my repo, you are basically trusting me with your entire machine. I would recommend forking the repo and using your fork if this makes you uncomfortable. Your machine also will grab the config from Github and uses Puppet to apply the changes. I have full control of your machine even after the install.
+By using the preseed file from my repo, you are basically trusting me with your entire machine. I would recommend forking the repo and using your fork if this makes you uncomfortable. Your machine will also grab the config from Github and use Puppet to apply the changes everytime you start the machine. Basically, I have full control of your machine even after the install. <Insert evil laugh :-)>
 
 # Future
 
