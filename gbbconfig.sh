@@ -1,5 +1,8 @@
 #!/bin/sh
 
-git pull /etc/gbb
-puppet apply /etc/gbb/puppet/gbb.pp
+cd /etc/gbb
+/usr/bin/git pull
+/usr/bin/puppet apply /etc/gbb/manifests/localbrowser.pp
+
+service lightdm restart
 
