@@ -1,5 +1,5 @@
 { 
-  "homepage" : "http://www.kentoncityschools.org", 
+  "homepage" : "http://google.com", 
   "homepage_is_newtabpage" : true, 
   "browser" : { 
     "show_home_button" : true, 
@@ -15,7 +15,7 @@
     "make_chrome_default" : false 
   }, 
   "first_run_tabs" : [ 
-    "http://www.kentoncityschools.org" 
+    "http://google.com" 
   ] 
 }
 
