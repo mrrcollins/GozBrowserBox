@@ -27,7 +27,7 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
  
 # Security concerns
  
-By using the preseed file from my repo, you are basically trusting me with your entire machine. I would recommend forking the repo and using your fork if this makes you uncomfortable. Your machine will also grab the config from Github and use Puppet to apply the changes everytime you start the machine. Basically, I have full control of your machine even after the install. <Insert evil laugh :-)>
+By using the preseed file from my repo, you are basically trusting me with your entire machine. I would recommend forking the repo and using your fork if this makes you uncomfortable. Your machine will also grab the config from Github and use Puppet to apply the changes everytime you start the machine. Basically, I have full control of your machine even after the install. &lt;Insert evil laugh :-)&gt;
 
 # Future
 
