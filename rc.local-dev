@@ -12,7 +12,7 @@
 # By default this script does nothing.
 
 if [ ! -d "/etc/gbb" ]; then
-        git clone https://github.com/mrrcollins/GozBrowserBox.git /etc/gbb
+        git clone -b dev https://github.com/mrrcollins/GozBrowserBox.git /etc/gbb
 fi
 
 bash /etc/gbb/gbbconfig.sh
