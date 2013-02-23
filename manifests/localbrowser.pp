@@ -1,6 +1,8 @@
 # /etc/gbb/manifests/localbrowser.pp
 #
 
+Exec { path => "/bin:/sbin:/usr/bin:/usr/sbin" }
+
 import "/etc/gbb/manifests/classes/*"
 
 include basesettings

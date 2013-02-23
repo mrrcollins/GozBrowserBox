@@ -1,7 +1,5 @@
 
 class basesettings {
-    Exec { path => "/bin:/sbin:/usr/bin:/usr/sbin" }
-
     user { "browser":
         ensure     	=> present,
         shell      	=> '/bin/bash',
