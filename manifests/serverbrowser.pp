@@ -1,4 +1,4 @@
-# /etc/gbb/manifests/localbrowser.pp
+# Sets up the machine to be a Browser server
 #
 
 Exec { path => "/bin:/sbin:/usr/bin:/usr/sbin" }
@@ -10,9 +10,19 @@ include googlechrome
 include ssh
 include ratpoison
 
-exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -m false -l false':
-    require		=> File['/usr/share/xsessions'],
-    unless		=> [ "test `cat /etc/lightdm/lightdm.conf | grep 'user-session=browser'` && test `cat /etc/lightdm/lightdm.conf | grep 'allow-guest=false'` && test `cat /etc/lightdm/lightdm.conf | grep 'greeter-show-manual-login=false'`"]
+
+# I've had issues with apparmor conflicting with Chrome's built in Flash. I
+# just stop and remove it for right now. :-)
+
+package { 'apparmor':
+    ensure  => absent,
+}
+package { 'apparmor-utils':
+    ensure  => absent,
+}
+
+exec { 'stopapparmor':
+    command => '/usr/sbin/update-rc.d -f apparmor remove',
 }
 
 file { '/usr/share/xsessions':

@@ -9,7 +9,7 @@ fi
 
 rm -Rf /home/`whoami`/profile
 
-dbus-launch /usr/bin/google-chrome --user-data-dir="/home/`whoami`/profile/"
+dbus-launch /usr/bin/google-chrome --user-data-dir="/home/`whoami`/profile/localuser"
 
 kill `ps | grep dbus-launch | grep -v grep | awk '{print $1}'`
 rm -Rf /home/`whoami`/profile
