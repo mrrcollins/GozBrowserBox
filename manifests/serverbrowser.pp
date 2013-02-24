@@ -43,3 +43,10 @@ exec { 'su browser -c "ssh-keygen -t rsa -f /home/browser/.ssh/browserkey -N \'\
     creates =>  '/home/browser/.ssh/browserkey',
 }
 
+file { '/home/browser/browser.sh':
+    ensure  => file, 
+    owner   => "browser",
+    group   => "browser",
+    mode    => 755,
+    source  => "/etc/gbb/files/browser.sh",
+}
