@@ -22,7 +22,7 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
  
 4. The Ubuntu installation will start up and ask you a few questions, answer them. :-)
 5. After you set up an administrative user, it will automatically erase and re-partition the hard drive and set it up. Let me repeat that IT WILL AUTOMATICALLY ERASE AND RE-PARTITION THE HARD DRIVE. You've been warned.
-6. It will install and reboot. After the login screen flashes, click the login button with the *Browser* user selected. If Google Chrome doesn't launch, try it one more time. If Google Chrome still doesn't launch, try restarting. I'm still working on the initial install of Google Chrome and it doesn't seem like it gets it right sometimes.
+6. It will install and reboot. After the login screen flashes, click the login button with the *Browser* user selected.
 7. If Google Chrome launches, you're golden!
  
 # Security concerns
