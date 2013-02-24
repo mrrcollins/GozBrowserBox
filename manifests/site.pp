@@ -5,6 +5,7 @@ import "/etc/gbb/manifests/classes/*"
 
 case $gbb_role {
     'localbrowser' : {
+        notify{'Localbrowser setup':}
         include basesettings
         include googlechrome
         include ssh
@@ -13,6 +14,7 @@ case $gbb_role {
     }
 
     'remotebrowser' : {
+        notify{'Remotebrowser setup':}
         include basesettings
         include ssh
         include ratpoison
@@ -20,6 +22,7 @@ case $gbb_role {
     }
 
     'serverbrowser' : {
+        notify{'Serverbrowser setup':}
         include basesettings
         include googlechrome
         include ssh
