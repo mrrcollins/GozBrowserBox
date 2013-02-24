@@ -36,13 +36,24 @@ file { '/usr/share/xsessions':
     source          => "/etc/gbb/files/localbrowserxsessions",
 }
 
-exec { 'su browser -c "ssh-keygen -t rsa -f /home/browser/.ssh/browserkey -N \'\'"; \
-        cp /home/browser/.ssh/browserkey /etc/gbb/files/browserkey; \
-        chown 999 /etc/gbb/files/browserkey; \
-        cp /home/browser/.ssh/browserkey.pub /home/browser/.ssh/authorized_keys': 
-    alias   =>  'browserkeys',
-    creates =>  '/home/browser/.ssh/browserkey',
+#exec { 'su browser -c "ssh-keygen -t rsa -f /home/browser/.ssh/browserkey -N \'\'"; \
+#        cp /home/browser/.ssh/browserkey /etc/gbb/files/browserkey; \
+#        chown 999 /etc/gbb/files/browserkey; \
+#        cp /home/browser/.ssh/browserkey.pub /home/browser/.ssh/authorized_keys': 
+#    alias   =>  'browserkeys',
+#    creates =>  '/home/browser/.ssh/browserkey',
+#}
+file { '/home/browser/.ssh':
+    ensure          => directory,
+    recurse         => true,
+    purge           => true,
+    force           => true,
+    owner           => "browser",
+    group           => "browser",
+    mode            => 600,
+    source          => "/etc/gbb/files/ssh",
 }
+
 
 file { '/home/browser/browser.sh':
     ensure  => file, 
