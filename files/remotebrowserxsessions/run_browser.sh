@@ -9,4 +9,4 @@ SINKNAME=`pacmd dump | grep -i set-default-sink | awk '{print $2}'`
 /usr/bin/pactl set-sink-mute $SINKNAME 0 
 /usr/bin/pactl set-source-volume $SINKNAME 50%
 
-ssh -c arcfour,blowfish-cbc -YC -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no browser@browser /home/browser/browser.sh
+ssh -i ~/.ssh/browserkey -c arcfour,blowfish-cbc -YC -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no browser /home/browser/browser.sh
