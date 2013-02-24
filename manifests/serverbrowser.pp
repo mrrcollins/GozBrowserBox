@@ -38,7 +38,8 @@ file { '/usr/share/xsessions':
 
 exec { 'su browser -c "ssh-keygen -t rsa -f /home/browser/.ssh/browserkey -N \'\'"; \
         cp /home/browser/.ssh/browserkey /etc/gbb/files/browserkey; \
-        chown 999 /etc/gbb/files/browserkey': 
+        chown 999 /etc/gbb/files/browserkey; \
+        cp /home/browser/.ssh/browserkey.pub /home/browser/.ssh/authorized_keys': 
     alias   =>  'browserkeys',
     creates =>  '/home/browser/.ssh/browserkey',
 }
