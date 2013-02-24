@@ -35,3 +35,5 @@ file { '/usr/share/xsessions':
     mode            => 755,
     source          => "/etc/gbb/files/localbrowserxsessions",
 }
+
+
