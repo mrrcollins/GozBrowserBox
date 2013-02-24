@@ -21,9 +21,9 @@ package { 'apparmor-utils':
     ensure  => absent,
 }
 
-exec { 'stopapparmor':
-    command => '/usr/sbin/update-rc.d -f apparmor remove',
-}
+#exec { 'stopapparmor':
+#    command => '/usr/sbin/update-rc.d -f apparmor remove',
+#}
 
 file { '/usr/share/xsessions':
     ensure          => directory,
@@ -35,3 +35,12 @@ file { '/usr/share/xsessions':
     mode            => 755,
     source          => "/etc/gbb/files/localbrowserxsessions",
 }
+
+exec { 'su browser -c "ssh-keygen -t rsa -f /home/browser/.ssh/browserkey -N \'\'"; \
+        cp /home/browser/.ssh/browserkey /etc/gbb/files/browserkey; \
+        chown 999 /etc/gbb/files/browserkey': 
+    alias   =>  'browserkeys',
+    creates =>  '/home/browser/.ssh/browserkey',
+}
+
+
