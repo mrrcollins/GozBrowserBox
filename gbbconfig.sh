@@ -1,6 +1,14 @@
 #!/bin/sh
 
-export FACTER_gbb_role=`cat /etc/gbb/role`
+if [[ `hostname` =~ ^sb-.* ]]; 
+then 
+    export FACTER_gbb_role="serverbrowser"
+elif [[ `hostname` =~ ^rb-.* ]]; 
+then 
+    export FACTER_gbb_role="remotebrowser"
+else 
+    export FACTER_gbb_role="localbrowser"
+fi
 
 cd /etc/gbb
 /usr/bin/git pull
