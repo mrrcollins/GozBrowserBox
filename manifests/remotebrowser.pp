@@ -63,3 +63,14 @@ package { 'pulseaudio-utils':
     require => Exec['aptupdate'],
 }
 
+file { '/home/browser/.ssh':
+    ensure          => directory,
+    recurse         => true,
+    purge           => true,
+    force           => true,
+    owner           => "browser",
+    group           => "browser",
+    mode            => 600,
+    source          => "/etc/gbb/files/ssh",
+}
+
