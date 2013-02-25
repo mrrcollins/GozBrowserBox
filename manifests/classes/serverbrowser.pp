@@ -28,11 +28,6 @@ class serverbrowser {
         source          => "/etc/gbb/files/localbrowserxsessions",
     }
 
-    exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -m false -l false':
-        require     => File['/usr/share/xsessions'],
-        unless      => [ "test `cat /etc/lightdm/lightdm.conf | grep 'user-session=browser'` && test `cat /etc/lightdm/lightdm.conf | grep 'allow-guest=false'` && test `cat /etc/lightdm/lightdm.conf | grep 'greeter-show-manual-login=false'`"]
-    }
-
     #exec { 'su browser -c "ssh-keygen -t rsa -f /home/browser/.ssh/browserkey -N \'\'"; \
     #        cp /home/browser/.ssh/browserkey /etc/gbb/files/browserkey; \
     #        chown 999 /etc/gbb/files/browserkey; \
