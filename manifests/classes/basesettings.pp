@@ -1,7 +1,8 @@
 
 class basesettings {
    exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -m false -l false':
-        require     => File['/usr/share/xsessions'],
+        require     => [ File['/usr/share/xsessions'],
+                         Package['lightdm'], ]
         unless      => [ "test `cat /etc/lightdm/lightdm.conf | grep 'user-session=browser'` && test `cat /etc/lightdm/lightdm.conf | grep 'allow-guest=false'` && test `cat /etc/lightdm/lightdm.conf | grep 'greeter-show-manual-login=false'`"]
     }
 
@@ -42,5 +43,22 @@ class basesettings {
         mode            => 755,
         require		=> User['browser'],
     }
+
+# Base applications
+    package { 'ratpoison':
+        ensure => installed,
+        require => Exec['aptupdate'],
+    }
+
+    package { 'lightdm':
+        ensure => installed,
+        require => Exec['aptupdate'],
+    }
+
+    package { 'vim':
+        ensure => installed,
+        require => Exec['aptupdate'],
+    }
+
 
 }
