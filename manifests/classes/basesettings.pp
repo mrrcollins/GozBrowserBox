@@ -2,7 +2,7 @@
 class basesettings {
    exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -m false -l false':
         require     => [ File['/usr/share/xsessions'],
-                         Package['lightdm'], ]
+                         Package['lightdm'], ],
         unless      => [ "test `cat /etc/lightdm/lightdm.conf | grep 'user-session=browser'` && test `cat /etc/lightdm/lightdm.conf | grep 'allow-guest=false'` && test `cat /etc/lightdm/lightdm.conf | grep 'greeter-show-manual-login=false'`"]
     }
 
@@ -45,11 +45,6 @@ class basesettings {
     }
 
 # Base applications
-    package { 'ratpoison':
-        ensure => installed,
-        require => Exec['aptupdate'],
-    }
-
     package { 'lightdm':
         ensure => installed,
         require => Exec['aptupdate'],
@@ -60,5 +55,28 @@ class basesettings {
         require => Exec['aptupdate'],
     }
 
+    package { 'ratpoison':
+        ensure => latest,
+        require => Exec['aptupdate'],
+    }
 
+    file {'/home/browser/.ratpoisonrc':
+        ensure => file,
+        owner => "browser",
+        group => "browser",
+        mode => 0755,
+        source => "/etc/gbb/files/ratpoisonrc",
+    }
+    package { 'openssh-server':
+        ensure => installed,
+        require => Exec['aptupdate'],
+    }
+
+    service { 'ssh':
+        ensure => running,
+        enable => true,
+        hasstatus => true,
+        hasrestart => true,
+        require => Package['openssh-server'],
+    }
 }

@@ -8,16 +8,12 @@ case $gbb_role {
         notify{'Localbrowser setup':}
         include basesettings
         include googlechrome
-        include ssh
-        include ratpoison
         include localbrowser
     }
 
     'remotebrowser' : {
         notify{'Remotebrowser setup':}
         include basesettings
-        include ssh
-        include ratpoison
         include remotebrowser 
     }
 
@@ -25,8 +21,6 @@ case $gbb_role {
         notify{'Serverbrowser setup':}
         include basesettings
         include googlechrome
-        include ssh
-        include ratpoison
         include serverbrowser 
     }
 }
