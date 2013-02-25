@@ -57,9 +57,15 @@ d-i netcfg/wireless_wep string
 ### Mirror settings
 # If you select ftp, the mirror/country string does not need to be set.
 #d-i mirror/protocol string ftp
+#d-i mirror/country string manual
+#d-i mirror/http/hostname string us.archive.ubuntu.com
+#d-i mirror/http/directory string /ubuntu
+#d-i mirror/http/proxy string
+
+# PPC 
 d-i mirror/country string manual
-d-i mirror/http/hostname string us.archive.ubuntu.com
-d-i mirror/http/directory string /ubuntu
+d-i mirror/http/hostname string ports.ubuntu.com
+d-i mirror/http/directory string /ubuntu-ports
 d-i mirror/http/proxy string
 
 #d-i mirror/http/hostname string munki
@@ -238,7 +244,7 @@ tasksel tasksel/first multiselect standard, minimal
 
 # Individual additional packages to install
 #d-i pkgsel/include string openssh-server build-essential
-#d-i pkgsel/include string openssh-server facter puppet git-core ratpoison lightdm vim
+d-i pkgsel/include string openssh-server facter puppet git-core ratpoison lightdm vim
 #d-i pkgsel/include string openssh-server
 
 # Language pack selection

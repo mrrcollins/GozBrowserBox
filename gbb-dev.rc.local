@@ -14,7 +14,14 @@
 
 if [ ! -d "/etc/gbb" ]; then
     /usr/bin/apt-get --yes update
-    /usr/bin/apt-get --yes install facter puppet git-core
+    
+    if [ ! -f "/usr/bin/puppet" ]; then
+        /usr/bin/apt-get --yes install facter puppet 
+    fi
+    if [ ! -f "/usr/bin/git" ]; then
+        /usr/bin/apt-get --yes install git-core
+    fi
+
     /usr/bin/git clone -b dev https://github.com/mrrcollins/GozBrowserBox.git /etc/gbb
 fi
 
