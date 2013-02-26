@@ -24,6 +24,7 @@ class localbrowser {
        group => "browser",
        mode => 0755,
        source => "/etc/gbb/files/xbindkeysrc",
+        require => User['browser'],
     }
 
     file {'/home/browser/toggle-mute':
@@ -32,6 +33,17 @@ class localbrowser {
        group => "browser",
        mode => 0755,
        source => "/etc/gbb/files/toggle-mute",
+        require => User['browser'],
     }
+
+    file {'/home/browser/lrblast1.ogg':
+       ensure => file,
+       owner => "browser",
+       group => "browser",
+       mode => 0755,
+       source => "/etc/gbb/files/lrblast1.ogg",
+        require => User['browser'],
+    }
+
 
 }

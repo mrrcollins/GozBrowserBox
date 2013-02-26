@@ -28,6 +28,7 @@ class serverbrowser {
        group => "browser",
        mode => 0755,
        source => "/etc/gbb/files/xbindkeysrc",
+	require => User['browser'],
     }
 
     file {'/home/browser/toggle-mute':
@@ -36,8 +37,16 @@ class serverbrowser {
        group => "browser",
        mode => 0755,
        source => "/etc/gbb/files/toggle-mute",
+        require => User['browser'],
     }
-
+    file {'/home/browser/lrblast1.ogg':
+       ensure => file,
+       owner => "browser",
+       group => "browser",
+       mode => 0755,
+       source => "/etc/gbb/files/lrblast1.ogg",
+        require => User['browser'],
+    }
 
     file { '/usr/share/xsessions':
         ensure          => directory,
@@ -66,6 +75,7 @@ class serverbrowser {
         group           => "browser",
         mode            => 600,
         source          => "/etc/gbb/files/ssh",
+        require => User['browser'],
     }
 
 
@@ -75,6 +85,7 @@ class serverbrowser {
         group   => "browser",
         mode    => 755,
         source  => "/etc/gbb/files/browser.sh",
+        require => User['browser'],
     }
 
 }

@@ -8,7 +8,7 @@ SINKNAME=`pacmd dump | grep -i set-default-sink | awk '{print $2}'`
 #/usr/bin/pactl load-module module-native-protocol-tcp auth-anonymous=1
 /usr/bin/pactl set-sink-mute $SINKNAME 0 
 /usr/bin/pactl set-source-volume $SINKNAME 75%
-
+paplay /home/browser/lrblast1.ogg &
 
 TERMINAL=`who | awk '{print $2}'`
 

@@ -29,6 +29,7 @@ class remotebrowser {
        group => "browser",
        mode => 0755,
        source => "/etc/gbb/files/xbindkeysrc",
+        require => User['browser'],
     }
 
     file {'/home/browser/toggle-mute':
@@ -37,6 +38,7 @@ class remotebrowser {
        group => "browser",
        mode => 0755,
        source => "/etc/gbb/files/toggle-mute",
+        require => User['browser'],
     }
 
     file { "/etc/default/mouseemu":
@@ -61,5 +63,6 @@ class remotebrowser {
         group           => "browser",
         mode            => 600,
         source          => "/etc/gbb/files/ssh",
+        require => User['browser'],
     }
 }
