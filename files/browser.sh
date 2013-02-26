@@ -7,6 +7,7 @@ else
 fi
 
 export PULSE_SERVER=${PROFILE}
+paplay /home/browser/lrblast1.ogg &
 
 TERMINAL=`who | awk '{print $2}'`
 
