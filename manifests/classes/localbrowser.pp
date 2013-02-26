@@ -12,4 +12,26 @@ class localbrowser {
         mode            => 755,
         source          => "/etc/gbb/files/localbrowserxsessions",
     }
+
+    package { 'xbindkeys':
+       ensure => latest,
+       require => Exec['aptupdate'],
+    }
+
+    file {'/home/browser/.xbindkeysrc':
+       ensure => file,
+       owner => "browser",
+       group => "browser",
+       mode => 0755,
+       source => "/etc/gbb/files/xbindkeysrc",
+    }
+
+    file {'/home/browser/toggle-mute':
+       ensure => file,
+       owner => "browser",
+       group => "browser",
+       mode => 0755,
+       source => "/etc/gbb/files/toggle-mute",
+    }
+
 }
