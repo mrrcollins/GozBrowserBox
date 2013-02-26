@@ -7,7 +7,7 @@ case $gbb_role {
     'localbrowser' : {
         notify{'Localbrowser setup':}
         include basesettings
-        include googlechrome
+        include browserapp
         include localbrowser
     }
 
@@ -20,7 +20,7 @@ case $gbb_role {
     'serverbrowser' : {
         notify{'Serverbrowser setup':}
         include basesettings
-        include googlechrome
+        include browserapp
         include serverbrowser 
     }
 }
