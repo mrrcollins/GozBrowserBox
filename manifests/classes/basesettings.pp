@@ -12,28 +12,37 @@ class basesettings {
         home       	=> '/home/browser',
         managehome 	=> true,
         password 	=> '$1$ADUODeAy$eCJ1lPSxhSGmSvrmWxjLC1',
+        groups      => ['audio'],
     }
 
-    exec { 'apt-get update':
-        alias   => "aptupdate",
-        command => '/usr/bin/apt-get update',
-        require => File['/etc/apt/sources.list.d/google.list'],
-        onlyif => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || /usr/bin/find /etc/apt/* -cnewer /var/cache/apt/pkgcache.bin | /bin/grep . > /dev/null'",
-    }
+    if $architecture == "ppc" {
+        exec { 'apt-get update':
+            alias   => "aptupdate",
+            command => '/usr/bin/apt-get update',
+            onlyif => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || /usr/bin/find /etc/apt/* -cnewer /var/cache/apt/pkgcache.bin | /bin/grep . > /dev/null'",
+        }
+   } else {
+        exec { 'apt-get update':
+            alias   => "aptupdate",
+            command => '/usr/bin/apt-get update',
+            require => File['/etc/apt/sources.list.d/google.list'],
+            onlyif => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || /usr/bin/find /etc/apt/* -cnewer /var/cache/apt/pkgcache.bin | /bin/grep . > /dev/null'",
+        }
 
-    file { '/etc/apt/sources.list.d/google.list':
-        alias           => "googlelist",
-        ensure          => file,
-        owner           => root,
-        group           => root,
-        mode            => 0644,
-        source          => "/etc/gbb/files/google.list",
-        require         => Exec["getgooglekey"],
-    }
+        file { '/etc/apt/sources.list.d/google.list':
+            alias           => "googlelist",
+            ensure          => file,
+            owner           => root,
+            group           => root,
+            mode            => 0644,
+            source          => "/etc/gbb/files/google.list",
+            require         => Exec["getgooglekey"],
+        }
 
-    exec { 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -':
-        alias           => "getgooglekey",
-        onlyif          => ["test `apt-key list | grep -i google | wc -l` -ne 1"],
+         exec { 'wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -':
+            alias           => "getgooglekey",
+            onlyif          => ["test `apt-key list | grep -i google | wc -l` -ne 1"],
+        }
     }
 
     file { '/home/browser/profiles':
