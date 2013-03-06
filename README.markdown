@@ -2,7 +2,6 @@
 
 GozBrowserBox is a set of scripts that will take an Ubuntu installation and set up a full screen browser box. It works very will with lower end machines and makes them more useful.
 
-
 ### INSTALLING GOZBROWSERBOX WILL TOTALLY WIPE OUT THE MACHINE IT IS BEING INSTALLED ON WITHOUT WARNING. USE AT YOUR OWN RISK!!!
 
 # Prerequisites
@@ -11,10 +10,9 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
 * The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads) for 12.04 (this will probably work on other versions, but I can't think of a good reason not to just use 12.04)
 * An Internet connection
 
-
 # Installation
 
-This will set up the current machine to boot only into Chrome. The machine must be an Intel based machine and should have at least 512MB of RAM.
+This will set up the current machine to boot into Chrome, be a Chrome server, or use Chrome as a remote browser.
 
 1. Boot off of the Alternate or Network Installer media
 2. At the select language prompt, hit the **ESC** key twice, then click *OK*.
@@ -33,7 +31,7 @@ boot: install url=mrrcollins.github.com/GozBrowserBox/gbb.cfg hostname=sb-myhost
 For an Intel machine that will act as a remote Chrome browser that connects to a Chrome server, start the hostname with *rb-*:
 ```
 boot: install url=mrrcollins.github.com/GozBrowserBox/gbb.cfg hostname=rb-myhostname
-``
+```
 
 For a PowerPC machine that will act as a remote Chrome browser that connects to a Chrome server, start the hostname with *rb-* and use a different config file:
 ```
@@ -53,7 +51,7 @@ At this point, the standalone set is good to go, log in as the browser user with
 You will need to set up a static IP address for your server and either set up a DNS entry for a machine named *browser* or edit the client's /etc/hosts file with the server's IP address. 
 
 To set a static IP address:
-1. <control><alt><F1> will switch you to a terminal window.
+1. control-alt-F1 will switch you to a terminal window.
 2. Log in with the admin user set up during installation (the default username is *gbbadmin*).
 3. At the command line type:
 ```
@@ -64,7 +62,7 @@ sudo nano -w /etc/network/interfaces
 #NetworkManager#auto eth0
 #NetworkManager#iface eth0 inet dhcp
 ```
-with:
+and replace with:
 ```
 auto eth0
 iface eth0 inet static
@@ -75,7 +73,7 @@ iface eth0 inet static
 ```
 Replace the Xs with the appropriate information for your network.
 
-5. <control><x> to quit, it will ask you to save the file.
+5. control-x to quit, it will ask you to save the file.
 6. 
 ```
 sudo reboot
@@ -89,7 +87,7 @@ browser                 IN      A       10.0.9.10
 ```
 
 If you cannot add it to DNS, you can modify the client's /etc/hosts file:
-1. <control><alt><F1> will switch you to a terminal window.
+1. control-alt-F1 will switch you to a terminal window.
 2. Log in with the admin user set up during installation (the default username is *gbbadmin*).
 3. At the command line type:
 ```
@@ -100,9 +98,9 @@ sudo nano -w /etc/hosts
 xx.xx.xx.xx     browser
 ```
 Put the servers IP address in for the Xs.
-5. <control><x> to exit and save your changes.
-6. <control><d> to log out.
-7. <control><alt><F7> to switch back to the login screen, which should let you connect to the remote server.
+5. control-x to exit and save your changes.
+6. control-d to log out.
+7. control-alt-F7 to switch back to the login screen, which should let you connect to the remote server.
 
 # Security concerns
  
