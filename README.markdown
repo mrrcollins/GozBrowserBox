@@ -87,6 +87,7 @@ browser                 IN      A       10.0.9.10
 ```
 
 If you cannot add it to DNS, you can modify the client's /etc/hosts file:
+
 1. control-alt-F1 will switch you to a terminal window.
 2. Log in with the admin user set up during installation (the default username is *gbbadmin*).
 3. At the command line type:
