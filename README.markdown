@@ -6,7 +6,7 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
 
 # Prerequisites
 
-* An older Intel machine that you want to use as a GozBrowserBox. I haven't tried it on machines with less than 512MB of RAM. Disk space is minimal. *THIS WILL TOTALLY WIPE THE HARD DRIVE WITHOUT WARNING. BE SURE THERE ISN'T ANYTHING ON THE MACHINE YOU WANT.*
+* A machine that you want to use as a GozBrowserBox. For a stand alone machine it will need to be an Intel machine with at least 512MB of RAM. For a Browser Server it needs to be an Intel machine with plenty of RAM. The remote browser setup can be either Intel or PowerPC with at least 128MB of RAM. Disk space is minimal. *THIS WILL TOTALLY WIPE THE HARD DRIVE WITHOUT WARNING. BE SURE THERE ISN'T ANYTHING ON THE MACHINE YOU WANT.*
 * The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads) for 12.04 (this will probably work on other versions, but I can't think of a good reason not to just use 12.04)
 * An Internet connection
 
@@ -36,7 +36,7 @@ boot: install url=mrrcollins.github.com/GozBrowserBox/gbb.cfg hostname=rb-myhost
 For a PowerPC machine that will act as a remote Chrome browser that connects to a Chrome server, start the hostname with *rb-* and use a different config file:
 ```
 boot: install url=mrrcollins.github.com/GozBrowserBox/gbbppc.cfg hostname=rb-myhostname
-``
+```
 
 4. The Ubuntu installation will start up and ask you a few questions, answer them. :-)
 5. After you set up an administrative user, it will automatically erase and re-partition the hard drive and set it up. Let me repeat that IT WILL AUTOMATICALLY ERASE AND RE-PARTITION THE HARD DRIVE. You've been warned.
