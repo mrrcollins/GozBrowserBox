@@ -10,6 +10,7 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
 * The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads) for 12.04 (this will probably work on other versions, but I can't think of a good reason not to just use 12.04)
 * An Internet connection
 
+
 # Installation
 
 This will set up the current machine to boot into Chrome, be a Chrome server, or use Chrome as a remote browser.
@@ -41,6 +42,8 @@ boot: install url=mrrcollins.github.com/GozBrowserBox/gbbppc hostname=rb-myhostn
 4. The Ubuntu installation will start up and ask you a few questions, answer them. :-)
 5. After you set up an administrative user, it will automatically erase and re-partition the hard drive and set it up. Let me repeat that IT WILL AUTOMATICALLY ERASE AND RE-PARTITION THE HARD DRIVE. You've been warned.
 6. It will install and reboot. After the login screen flashes the setup is completed.
+
+![Login screen](http://mrrcollins.github.com/GozBrowserBox/loginscreen.jpg?raw=true)
 
 ## Standalone installation
 
