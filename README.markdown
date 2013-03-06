@@ -20,22 +20,22 @@ This will set up the current machine to boot into Chrome, be a Chrome server, or
 
 For a stand alone installation of only Chrome (This will set up the current machine to boot only into Chrome. The machine must be an Intel based machine and should have at least 512MB of RAM.) :
 ```
-boot: install url=mrrcollins.github.com/GozBrowserBox/gbb.cfg hostname=myhostname
+boot: install url=mrrcollins.github.com/GozBrowserBox/gbb hostname=myhostname
 ```
  
 For an Intel machine that will act as a Chrome server to slower machines, start the hostname with *sb-*:
 ```
-boot: install url=mrrcollins.github.com/GozBrowserBox/gbb.cfg hostname=sb-myhostname
+boot: install url=mrrcollins.github.com/GozBrowserBox/gbb hostname=sb-myhostname
 ```
 
 For an Intel machine that will act as a remote Chrome browser that connects to a Chrome server, start the hostname with *rb-*:
 ```
-boot: install url=mrrcollins.github.com/GozBrowserBox/gbb.cfg hostname=rb-myhostname
+boot: install url=mrrcollins.github.com/GozBrowserBox/gbb hostname=rb-myhostname
 ```
 
 For a PowerPC machine that will act as a remote Chrome browser that connects to a Chrome server, start the hostname with *rb-* and use a different config file:
 ```
-boot: install url=mrrcollins.github.com/GozBrowserBox/gbbppc.cfg hostname=rb-myhostname
+boot: install url=mrrcollins.github.com/GozBrowserBox/gbbppc hostname=rb-myhostname
 ```
 
 4. The Ubuntu installation will start up and ask you a few questions, answer them. :-)
