@@ -22,7 +22,7 @@ if [ ! -d "/etc/gbb" ]; then
         /usr/bin/apt-get --yes install git-core
     fi
 
-    /usr/bin/git clone -b dev https://github.com/mrrcollins/GozBrowserBox.git /etc/gbb
+    /usr/bin/git clone https://github.com/mrrcollins/GozBrowserBox.git /etc/gbb
 fi
 
 bash /etc/gbb/gbbconfig.sh
