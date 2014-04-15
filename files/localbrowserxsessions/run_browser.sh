@@ -1,5 +1,5 @@
 #!/bin/bash
-/usr/bin/ratpoison &
+/usr/bin/jwm &
 
 /usr/bin/xbindkeys
 

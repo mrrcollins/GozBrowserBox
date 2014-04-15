@@ -64,17 +64,17 @@ class basesettings {
         require => Exec['aptupdate'],
     }
 
-    package { 'ratpoison':
+    package { 'jwm':
         ensure => latest,
         require => Exec['aptupdate'],
     }
 
-    file {'/home/browser/.ratpoisonrc':
+    file {'/home/browser/.jwmrc':
         ensure => file,
         owner => "browser",
         group => "browser",
         mode => 0755,
-        source => "/etc/gbb/files/ratpoisonrc",
+        source => "/etc/gbb/files/jwmrc",
     }
     package { 'openssh-server':
         ensure => installed,
