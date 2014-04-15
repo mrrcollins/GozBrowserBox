@@ -62,6 +62,12 @@ d-i mirror/http/hostname string us.archive.ubuntu.com
 d-i mirror/http/directory string /ubuntu
 d-i mirror/http/proxy string
 
+# PPC 
+#d-i mirror/country string manual
+#d-i mirror/http/hostname string ports.ubuntu.com
+#d-i mirror/http/directory string /ubuntu-ports
+#d-i mirror/http/proxy string
+
 #d-i mirror/http/hostname string munki
 #d-i mirror/http/directory string /i386/ubuntu-12.04.1-alternate-i386
 #d-i mirror/http/proxy string
@@ -180,11 +186,8 @@ d-i partman/confirm_nooverwrite boolean true
 # To create a normal user account.
 #d-i passwd/user-fullname string Ubuntu User
 #d-i passwd/username string ubuntu
-#d-i passwd/user-fullname string Technical Services
-#d-i passwd/username string kadmin
-d-i passwd/user-fullname string Sysadmin
-#d-i passwd/username string kadmin
-
+d-i passwd/user-fullname string gbbadmin
+#d-i passwd/username string gbbadmin
 
 # Normal user's password, either in clear text
 #d-i passwd/user-password password insecure
@@ -207,6 +210,7 @@ d-i user-setup/encrypt-home boolean false
 #d-i apt-setup/restricted boolean true
 #d-i apt-setup/universe boolean true
 #d-i apt-setup/backports boolean true
+#d-i apt-setup/extras boolean true
 # Uncomment this if you don't want to use a network mirror.
 #d-i apt-setup/use_mirror boolean false
 # Select which update services to use; define the mirrors to be used.
@@ -235,11 +239,12 @@ d-i user-setup/encrypt-home boolean false
 #tasksel tasksel/first multiselect standard, ubuntu-desktop
 #tasksel tasksel/first multiselect standard, lamp-server
 #tasksel tasksel/first multiselect standard, kubuntu-desktop
-tasksel tasksel/first multiselect standard, lubuntu-desktop
+#tasksel tasksel/first multiselect standard, lubuntu-desktop
+tasksel tasksel/first multiselect standard, minimal
 
 # Individual additional packages to install
 #d-i pkgsel/include string openssh-server build-essential
-d-i pkgsel/include string openssh-server facter puppet git-core ratpoison lubuntu-desktop vim
+d-i pkgsel/include string openssh-server facter puppet git-core ratpoison lightdm vim
 #d-i pkgsel/include string openssh-server
 
 # Language pack selection
@@ -249,7 +254,7 @@ d-i pkgsel/language-packs multiselect en
 # Policy for applying updates. May be "none" (no automatic updates),
 # "unattended-upgrades" (install security updates automatically), or
 # "landscape" (manage system with Landscape).
-d-i pkgsel/update-policy select none
+d-i pkgsel/update-policy select unattended-upgrades
 
 # Some versions of the installer can report back on what software you have
 # installed, and what software you use. The default is not to report back,
