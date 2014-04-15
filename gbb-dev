@@ -244,7 +244,7 @@ tasksel tasksel/first multiselect standard, minimal
 
 # Individual additional packages to install
 #d-i pkgsel/include string openssh-server build-essential
-d-i pkgsel/include string openssh-server facter puppet git-core ratpoison lightdm vim
+d-i pkgsel/include string openssh-server facter puppet git-core jwm lightdm vim
 #d-i pkgsel/include string openssh-server
 
 # Language pack selection
