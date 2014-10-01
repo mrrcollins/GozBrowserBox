@@ -21,7 +21,15 @@ class basesettings {
         greeter-show-remote-login=false
         allow-guest=false
         ',
+        require => File['/etc/lightdm/lightdm.conf.d'],
       }
+
+        file { '/etc/lightdm/lightdm.conf.d':
+                ensure  => directory,
+                owner   => 'root',
+                group   => 'root',
+                mode    => '0644',
+            }
     }
     }
 
