@@ -7,7 +7,7 @@ GozBrowserBox is a set of scripts that will take an Ubuntu installation and set 
 # Prerequisites
 
 * A machine that you want to use as a GozBrowserBox. For a stand alone machine it will need to be an Intel machine with at least 512MB of RAM. For a Browser Server it needs to be an Intel machine with plenty of RAM. The remote browser setup can be either Intel or PowerPC with at least 128MB of RAM. Disk space is minimal. *THIS WILL TOTALLY WIPE THE HARD DRIVE WITHOUT WARNING. BE SURE THERE ISN'T ANYTHING ON THE MACHINE YOU WANT.*
-* The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads) for 12.04 (this will probably work on other versions, but I can't think of a good reason not to just use 12.04)
+* The Ubuntu Alternate CD or network installer from [Alternative downloads](http://www.ubuntu.com/download/desktop/alternative-downloads) for 12.04 or 14.04. I tested it with the mini.iso, which is a small download. BUT, it then downloads everything else it needs on install.
 * An Internet connection
 
 
