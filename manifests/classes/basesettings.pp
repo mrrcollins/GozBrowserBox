@@ -10,7 +10,7 @@ class basesettings {
 
     13: { exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -i false -m true -l false -R false':} }
 
-    14: { file { '/usr/share/lightdm/lightdm.conf.d/50-GozBrowserBox.conf':
+    14: { file { '/etc/lightdm/lightdm.conf.d/50-GozBrowserBox.conf':
         ensure  => present,
         owner   => 'root',
         group   => 'root',
