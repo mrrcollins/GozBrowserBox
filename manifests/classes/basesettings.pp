@@ -1,10 +1,30 @@
 
 class basesettings {
-   exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -m false -l false':
-        require     => [ File['/usr/share/xsessions'],
-                         Package['lightdm'], ],
-        unless      => [ "test `cat /etc/lightdm/lightdm.conf | grep 'user-session=browser'` && test `cat /etc/lightdm/lightdm.conf | grep 'allow-guest=false'` && test `cat /etc/lightdm/lightdm.conf | grep 'greeter-show-manual-login=false'`"]
+
+    case $lsbmajdistrelease {
+    12: { exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -i false -m true -l false':
+                 require     => [ File['/usr/share/xsessions'],
+                 Package['lightdm'], ],
+                 unless      => [ "test `cat /etc/lightdm/lightdm.conf | grep 'user-session=browser'` && test `cat /etc/lightdm/lightdm.conf | grep 'allow-guest=false'` && test `cat /etc/lightdm/lightdm.conf | grep 'greeter-show-manual-login=false'`"]
+    } }
+
+    13: { exec { '/usr/lib/lightdm/lightdm-set-defaults -s browser -i false -m true -l false -R false':} }
+
+    14.04: { file { '/usr/share/lightdm/lightdm.conf.d/50-GozBrowserBox':
+        ensure  => present,
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        content => ' [SeatDefaults]
+        user-session=browser
+        greeter-hide-users=false
+        greeter-show-manual-login=false
+        greeter-show-remote-login=false
+        allow-guest=false',
+      }
     }
+    }
+
 
     user { "browser":
         ensure     	=> present,
