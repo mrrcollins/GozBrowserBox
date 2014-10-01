@@ -17,7 +17,6 @@ class basesettings {
         mode    => '0644',
         content => ' [SeatDefaults]
         user-session=browser
-        greeter-hide-users=false
         greeter-show-manual-login=false
         greeter-show-remote-login=false
         allow-guest=false
