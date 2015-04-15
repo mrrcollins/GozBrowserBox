@@ -17,10 +17,14 @@ if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
 fi
 
 PROFILE="/home/`whoami`/profiles/localuser"
+DOWNLOADS="/home/`whoami`/profiles/localuser/Downloads"
 
 rm -Rf "${PROFILE}"
+rm -Rf "${DOWNLOADS}"
 
 dbus-launch /usr/bin/google-chrome --user-data-dir="${PROFILE}"
 
 kill `ps | grep dbus-launch | grep -v grep | awk '{print $1}'`
+
+rm -Rf "${DOWNLOADS}"
 rm -Rf "${PROFILE}"
