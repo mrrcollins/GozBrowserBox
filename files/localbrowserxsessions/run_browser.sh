@@ -17,7 +17,7 @@ if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
 fi
 
 PROFILE="/home/`whoami`/profiles/localuser"
-DOWNLOADS="/home/`whoami`/profiles/localuser/Downloads"
+DOWNLOADS="/home/`whoami`/Downloads"
 
 rm -Rf "${PROFILE}"
 rm -Rf "${DOWNLOADS}"
