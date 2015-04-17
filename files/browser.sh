@@ -12,6 +12,7 @@ paplay /home/browser/lrblast1.ogg &
 TERMINAL=`who | awk '{print $2}'`
 
 rm -Rf /home/`whoami`/profiles/${PROFILE}
+rm -Rf /home/`whoami`/Downloads
 
 if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
     eval 'dbus-launch --sh-syntax --exit-with-session'
@@ -21,4 +22,5 @@ dbus-launch /usr/bin/google-chrome --user-data-dir="/home/`whoami`/profiles/${PR
 
 kill `ps | grep dbus-launch | grep -v grep | awk '{print $1}'`
 
+rm -Rf /home/`whoami`/Downloads
 rm -Rf /home/`whoami`/profiles/${PROFILE}
