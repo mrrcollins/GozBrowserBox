@@ -22,5 +22,6 @@ dbus-launch /usr/bin/google-chrome --user-data-dir="/home/`whoami`/profiles/${PR
 
 kill `ps | grep dbus-launch | grep -v grep | awk '{print $1}'`
 
+rm -Rf /home/`whoami`/Downloads
 rm -Rf /home/`whoami`/profiles/${PROFILE}
 rm -Rf /home/`whoami`/Downloads

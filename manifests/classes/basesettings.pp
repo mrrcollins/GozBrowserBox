@@ -92,6 +92,11 @@ class basesettings {
         require => Exec['aptupdate'],
     }
 
+    package { 'lightdm-gtk-greeter':
+        ensure  => installed,
+        require => Exec['aptupdate'],
+    }
+
     package { 'jwm':
         ensure => latest,
         require => Exec['aptupdate'],
